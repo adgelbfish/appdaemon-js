@@ -15,6 +15,6 @@ haWs.createConnection(getWsUrl(config.appDaemon.haUrl), {authToken: config.appDa
     config: config
   };
   Object.entries(apps).forEach(([key, app]) => {
-    app.script(appDaemon);
+    app.app(appDaemon);
   });
 });

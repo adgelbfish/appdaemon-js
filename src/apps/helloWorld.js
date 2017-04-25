@@ -1,3 +1,3 @@
-export const script = (appDaemon) => {
+export const app = (appDaemon) => {
   console.log("Hello World!")
 };

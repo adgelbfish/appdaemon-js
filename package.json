@@ -1,0 +1,22 @@
+{
+  "name": "home-assistant-js-script-host",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel-node app.js"
+  },
+  "author": "Avraham David Gelbfish <adg@adgelb.fish>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
+    "nodemon": "^1.11.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}

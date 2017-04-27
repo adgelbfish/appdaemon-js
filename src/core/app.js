@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import WebSocket from "ws";
-const W3CWebSocket = require('websocket').w3cwebsocket;
 global.WebSocket = WebSocket;
 import * as haWs from "home-assistant-js-websocket";
 import path from "path";
@@ -34,7 +33,7 @@ try {
 
 import * as apps from "../apps/index";
 
-const getWsUrl = haUrl => `ws://${haUrl}/api/websocket`;
+export const getWsUrl = haUrl => `ws://${haUrl}/api/websocket`;
 
 haWs
   .createConnection(getWsUrl(config.appDaemon.haUrl), {

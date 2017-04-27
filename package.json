@@ -1,11 +1,13 @@
 {
-  "name": "home-assistant-js-script-host",
-  "version": "1.0.0",
+  "name": "app-daemon-js",
+  "version": "0.0.1",
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "babel-node src/core/app.js"
+    "dev": "babel-node src/core/app.js",
+    "build": "babel src --out-dir lib"
   },
   "author": "Avraham David Gelbfish <adg@adgelb.fish>",
   "license": "MIT",
@@ -22,5 +24,8 @@
   "dependencies": {
     "home-assistant-js-websocket": "^1.1.0",
     "ws": "^2.3.1"
+  },
+  "bin": {
+    "appdaemon-js":"./lib/core/app.js"
   }
 }

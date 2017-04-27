@@ -1,4 +1,4 @@
-import * as sampleScript from './helloWorld'
+import * as helloWorld from './helloWorld'
 import * as printStates from './printStates'
 
-export {sampleScript, printStates}
+export {helloWorld, printStates}

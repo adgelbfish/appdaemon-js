@@ -15,6 +15,47 @@ Run the following on a dev testing machine with Home Assistant:
 
 `npm install -g app-daemon-js`
 
+then you'll need a directory structure like this:
+
+```
+.appdaemon-js/
+    config.js
+    apps/
+        customApp.js
+```
+
+then you'll need a config.js file structured like this:
+
+```javascript
+const config = {
+  appDaemon: {
+    haUrl: "localhost:8123",
+    haKey: "",
+    logfile: "",
+    errorfile: "",
+    latitude: "",
+    longitude: "",
+    elevation: "",
+    timezone: ""
+  },
+  builtInApps: {
+    printEntities: {
+      enable: false
+    },
+    helloWorld: {
+      enable: false
+    }
+  },
+  customApps: {
+  
+  }
+};
+
+module.exports.default = config;
+```
+
+then run:
+
 `appdaemon-js`
 
 ---------

@@ -1,4 +1,4 @@
 import * as helloWorld from "./helloWorld";
-import * as printStates from "./printStates";
+import * as printEntities from "./printEntities";
 
-export { helloWorld, printStates };
+export { helloWorld, printEntities };

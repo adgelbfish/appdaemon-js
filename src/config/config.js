@@ -9,11 +9,16 @@ const config = {
     elevation: "",
     timezone: ""
   },
-  printStates: {
-    enable: true
+  builtInApps: {
+    printStates: {
+      enable: true
+    },
+    helloWorld: {
+      enable: true
+    }
   },
-  helloWorld: {
-    enable: true
+  customApps: {
+
   }
 };
 

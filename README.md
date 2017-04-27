@@ -1,14 +1,25 @@
 AppDaemon JS
 ------
 
+###Javascript apps for Home Assistant
+
+-----
+
 **This is pre-alpha software, intended for developer testing only**
 
-things may change significantly
+_________
 
-Javascript apps for Home Assistant
+**See it in action:**
 
-check out the apps in `src/apps`
+Run the following on a dev testing machine with Home Assistant:
 
-config is currently in `src/config`
+`npm install -g app-daemon-js`
 
-`yarn dev` to run the project in dev mode
+`appdaemon-js`
+
+---------
+
+**Please Note:**
+
+The API may change significantly in the first few minor versions (pre- 0.1)
+

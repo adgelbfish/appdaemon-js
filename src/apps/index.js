@@ -1,4 +1,4 @@
-import * as helloWorld from './helloWorld'
-import * as printStates from './printStates'
+import * as helloWorld from "./helloWorld";
+import * as printStates from "./printStates";
 
-export {helloWorld, printStates}
+export { helloWorld, printStates };

@@ -29,6 +29,4 @@ haWs
       console.log(enabled);
       if (enabled) app.app(appDaemon);
     });
-  },
-  console.log
-  );
+  }, console.log);

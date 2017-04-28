@@ -23,7 +23,7 @@ let customApps;
 try {
   customApps = fs.readdirSync(CUSTOM_APP_DIR).map(file => {
     return {
-      name: file,
+      name: file.slice(0, -3),
       app: require(path.join(CUSTOM_APP_DIR, file)).app
     };
   });
@@ -45,13 +45,17 @@ haWs
       connection: conn,
       config: config
     };
+
     Object.entries(apps).forEach(([key, app]) => {
       let enabled = config.builtInApps[key] && config.builtInApps[key].enable;
       if (enabled) app.app(appDaemon);
     });
+
     customApps.forEach(app => {
+
       let enabled =
         config.customApps[app.name] && config.customApps[app.name].enable;
       if (enabled) app.app(appDaemon);
+      console.log(app.name + " enabled: " + enabled)
     });
-  }, console.log);
+  }, console.error);

@@ -16,11 +16,7 @@ const readDirPromise = (path, encoding = "utf8") =>
     });
   });
 
-const readAllFilesInDir = (
-  path,
-  encoding = "utf8",
-  fileEncoding = "utf8"
-) =>
+const readAllFilesInDir = (path, encoding = "utf8", fileEncoding = "utf8") =>
   readDirPromise(path, encoding).then(files =>
     Promise.all(files.map(file => readFilePromise(path + file, fileEncoding)))
   );

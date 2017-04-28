@@ -52,10 +52,9 @@ haWs
     });
 
     customApps.forEach(app => {
-
       let enabled =
         config.customApps[app.name] && config.customApps[app.name].enable;
       if (enabled) app.app(appDaemon);
-      console.log(app.name + " enabled: " + enabled)
+      console.log(app.name + " enabled: " + enabled);
     });
   }, console.error);

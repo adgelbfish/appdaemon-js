@@ -1,6 +1,6 @@
 {
   "name": "app-daemon-js",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "main": "app.js",
   "repository": {
@@ -11,7 +11,8 @@
     "start": "",
     "test": "jest",
     "dev": "babel-node src/core/app.js",
-    "build": "babel src --out-dir lib --ignore *.spec.js"
+    "build": "babel src --out-dir lib --ignore *.spec.js",
+    "prepublishOnly": "npm run build"
   },
   "author": "Avraham David Gelbfish <adg@adgelb.fish>",
   "license": "MIT",

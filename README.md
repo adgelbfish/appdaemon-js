@@ -16,6 +16,7 @@ Run the following on a dev testing machine with Home Assistant:
 `npm install -g app-daemon-js`
 
 then you'll need a directory structure like this:
+(placed in your home directory)
 
 ```
 .appdaemon-js/
@@ -24,19 +25,16 @@ then you'll need a directory structure like this:
         customApp.js
 ```
 
+alternatively, you can specify the config directory 
+as a command line argument
+
 then you'll need a config.js file structured like this:
 
 ```javascript
 const config = {
   appDaemon: {
     haUrl: "localhost:8123",
-    haKey: "",
-    logfile: "",
-    errorfile: "",
-    latitude: "",
-    longitude: "",
-    elevation: "",
-    timezone: ""
+    haKey: ""
   },
   builtInApps: {
     printEntities: {
@@ -47,7 +45,9 @@ const config = {
     }
   },
   customApps: {
-  
+    customApp: {
+      enable: true
+    }
   }
 };
 

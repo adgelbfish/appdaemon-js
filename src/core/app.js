@@ -4,7 +4,7 @@ global.WebSocket = WebSocket;
 import * as haWs from "home-assistant-js-websocket";
 import path from "path";
 import os from "os";
-import fs from "fs";
+import fse from "fs-extra";
 
 let args = process.argv.slice(2);
 
@@ -16,12 +16,22 @@ let CONFIG_FILE_PATH =
   process.env.APPDAEMONJS_CONFIG_FILE_PATH ||
   path.join(CONFIG_DIR, "config.js");
 
+const copyOptions = {
+  overwrite: false,
+  errorOnExist: false
+};
+[CONFIG_DIR, CUSTOM_APP_DIR].forEach((path) => fse.ensureDirSync(path));
+if (!fse.pathExistsSync(CONFIG_FILE_PATH))
+  fse.copySync(path.join(__dirname, "../../sample_config_dir/apps/energySaver.js"), path.join(CUSTOM_APP_DIR, "energySaver.js"), copyOptions)
+
+fse.copySync(path.resolve(__dirname, "../../sample_config_dir/config.js"), CONFIG_FILE_PATH, copyOptions);
+
 const config = require(CONFIG_FILE_PATH).default;
 
 let customApps;
 
 try {
-  customApps = fs.readdirSync(CUSTOM_APP_DIR).map(file => {
+  customApps = fse.readdirSync(CUSTOM_APP_DIR).map(file => {
     return {
       name: file.slice(0, -3),
       app: require(path.join(CUSTOM_APP_DIR, file)).app

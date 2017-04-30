@@ -14,10 +14,10 @@ const config = {
   customApps: {
     energySaver: {
       enable: true,
-      entities: ["light.storage_room"], //array of entities to listen for
+      entities: ["light.some_light"], //array of entities to listen for
       minutes: 60 //how many minutes until shutting them off
     }
   }
 };
 
-export default config;
+module.exports.default = config;

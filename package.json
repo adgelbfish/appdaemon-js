@@ -29,6 +29,7 @@
     ]
   },
   "dependencies": {
+    "fs-extra": "^3.0.0",
     "home-assistant-js-websocket": "^1.1.0",
     "ws": "^2.3.1"
   },

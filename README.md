@@ -27,5 +27,9 @@ then run
 you should see some sample config and a sample app put 
 in your home directory under `.appdaemon-js/`
 
-that's the default config directory
+that's the default config directory, 
+you can also specify a different directory via
+
+`appdaemon-js ~/.path/to/config/directory/`
+
 

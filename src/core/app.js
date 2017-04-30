@@ -34,12 +34,13 @@ if (!fse.existsSync(CONFIG_FILE_PATH)) {
     copyOptions
   );
   console.log(
-    "Congratulations! You have successfully installed and run appdaemon-js.\nPlease set up your config in ~/.appdaemon-js/config.js and run appdaemon-js again."
+    "Congratulations! You have successfully installed and run appdaemon-js."
   );
-  process.exit()
+  console.log(
+    "Please set up your config in "+ CONFIG_FILE_PATH + " and run appdaemon-js again."
+  );
+  process.exit();
 }
-
-
 
 const config = require(CONFIG_FILE_PATH).default;
 

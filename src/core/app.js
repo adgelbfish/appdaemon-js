@@ -20,11 +20,21 @@ const copyOptions = {
   overwrite: false,
   errorOnExist: false
 };
-[CONFIG_DIR, CUSTOM_APP_DIR].forEach((path) => fse.ensureDirSync(path));
-if (!fse.pathExistsSync(CONFIG_FILE_PATH))
-  fse.copySync(path.join(__dirname, "../../sample_config_dir/apps/energySaver.js"), path.join(CUSTOM_APP_DIR, "energySaver.js"), copyOptions)
 
-fse.copySync(path.resolve(__dirname, "../../sample_config_dir/config.js"), CONFIG_FILE_PATH, copyOptions);
+if (!fse.pathExistsSync(CONFIG_FILE_PATH)) {
+  [CONFIG_DIR, CUSTOM_APP_DIR].forEach(path => fse.ensureDirSync(path));
+  fse.copySync(
+    path.join(__dirname, "../../sample_config_dir/apps/energySaver.js"),
+    path.join(CUSTOM_APP_DIR, "energySaver.js"),
+    copyOptions
+  );
+}
+
+fse.copySync(
+  path.resolve(__dirname, "../../sample_config_dir/config.js"),
+  CONFIG_FILE_PATH,
+  copyOptions
+);
 
 const config = require(CONFIG_FILE_PATH).default;
 
@@ -43,12 +53,20 @@ try {
 
 import * as apps from "../apps/index";
 
-export const getWsUrl = haUrl => `ws://${haUrl}/api/websocket`;
+export const getWsUrl = (haUrl, port, encrypted) =>
+  `ws${encrypted ? "s" : ""}://${haUrl}${port ? ":" + port : ""}/api/websocket`;
 
 haWs
-  .createConnection(getWsUrl(config.appDaemon.haUrl), {
-    authToken: config.appDaemon.haKey
-  })
+  .createConnection(
+    getWsUrl(
+      config.appDaemon.haUrl,
+      config.appDaemon.port,
+      config.appDaemon.encryption || false
+    ),
+    {
+      authToken: config.appDaemon.haKey
+    }
+  )
   .then(conn => {
     let appDaemon = {
       util: haWs,

@@ -1,7 +1,9 @@
 const config = {
   appDaemon: {
-    haUrl: "localhost:8123",
-    haKey: ""
+    haUrl: "localhost",
+    haKey: "",
+    encryption: false,
+    port: 8123
   },
   builtInApps: {
     printEntities: {

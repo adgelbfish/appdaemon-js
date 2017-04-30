@@ -2,6 +2,11 @@
 
 An appdaemon-js app can be as simple as 
 
+Note: there are three components to the appDaemon object that gets passed in:
+
+1. **connection:** documented at [https://github.com/home-assistant/home-assistant-js-websocket]
+2. **util:** the home-assistant-js-websocket package from npm
+3. **config:** the config object
 
 ```javascript
 // export the app as exports.app

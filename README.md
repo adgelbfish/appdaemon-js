@@ -5,62 +5,27 @@ AppDaemon JS
 
 -----
 
-**This is pre-alpha software, intended for developer testing only**
+**AppDaemon JS is nearing the first alpha release!** 
+
+Please create a pull request 
+or ping me (@adgelbfish) 
+on Gitter with any issues 
+so I can fix them right away
 
 _________
 
-**See it in action:**
+**Try it out:**
 
-Run the following on a dev testing machine with Home Assistant:
+Run the following on a machine with NodeJS and npm installed:
 
 `npm install -g app-daemon-js`
 
-then you'll need a directory structure like this:
-(placed in your home directory)
-
-```
-.appdaemon-js/
-    config.js
-    apps/
-        customApp.js
-```
-
-alternatively, you can specify the config directory 
-as a command line argument
-
-then you'll need a config.js file structured like this:
-
-```javascript
-const config = {
-  appDaemon: {
-    haUrl: "localhost:8123",
-    haKey: ""
-  },
-  builtInApps: {
-    printEntities: {
-      enable: false
-    },
-    helloWorld: {
-      enable: false
-    }
-  },
-  customApps: {
-    customApp: {
-      enable: true
-    }
-  }
-};
-
-module.exports.default = config;
-```
-
-then run:
+then run
 
 `appdaemon-js`
 
----------
+you should see some sample config and a sample app put 
+in your home directory under `.appdaemon-js/`
 
-**Please Note:**
-
-The API may change significantly in the first few minor versions (pre- 0.1)
+that's the default config directory
 

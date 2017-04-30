@@ -15,7 +15,7 @@ const config = {
   },
   customApps: {
     energySaver: {
-      enable: true,
+      enable: false,
       entities: ["light.some_light"], //array of entities to listen for
       minutes: 60 //how many minutes until shutting them off
     }

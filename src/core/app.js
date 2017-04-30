@@ -21,20 +21,25 @@ const copyOptions = {
   errorOnExist: false
 };
 
-if (!fse.pathExistsSync(CONFIG_FILE_PATH)) {
+if (!fse.existsSync(CONFIG_FILE_PATH)) {
   [CONFIG_DIR, CUSTOM_APP_DIR].forEach(path => fse.ensureDirSync(path));
   fse.copySync(
     path.join(__dirname, "../../sample_config_dir/apps/energySaver.js"),
     path.join(CUSTOM_APP_DIR, "energySaver.js"),
     copyOptions
   );
+  fse.copySync(
+    path.resolve(__dirname, "../../sample_config_dir/config.js"),
+    CONFIG_FILE_PATH,
+    copyOptions
+  );
+  console.log(
+    "Congratulations! You have successfully installed and run appdaemon-js.\nPlease set up your config in ~/.appdaemon-js/config.js and run appdaemon-js again."
+  );
+  process.exit()
 }
 
-fse.copySync(
-  path.resolve(__dirname, "../../sample_config_dir/config.js"),
-  CONFIG_FILE_PATH,
-  copyOptions
-);
+
 
 const config = require(CONFIG_FILE_PATH).default;
 
